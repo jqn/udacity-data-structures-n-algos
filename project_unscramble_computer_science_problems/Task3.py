@@ -69,12 +69,13 @@ for call in calls:
     if filterAreaCode(call):
         area_codes.append(getAreaCode(call))
 
+bangalore_numbers = list(set(area_codes))
+bangalore_numbers.sort()
+
 print("The numbers called by people in Bangalore have codes:")
 
-area_codes.sort()
-
-for area_code in area_codes:
-    print(area_code)
+for number in bangalore_numbers:
+    print(number)
 
 bangalore_fixed_lines_calls = []
 
