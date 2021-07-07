@@ -46,12 +46,40 @@ The percentage should have 2 decimal digits
 """
 
 
-def filterNumbers():
+def filterAreaCode(call):
     # Bangalore numbers
-    # Fixed lines
+    bangalore_area_code = '(080)'
+    if bangalore_area_code in call[0]:
+        return True
 
-    pass
+def getAreaCode(call):
+    receiving_number = call[1]
+    if '(' in receiving_number:
+        landline_prefix = receiving_number.partition(")")[0]
+        return landline_prefix[1:]
+    if receiving_number[0] == '7' or receiving_number[0] == '8' or receiving_number[0] == '9':
+        return receiving_number[0:4]
+    if receiving_number[:3] == '140':
+        return receiving_number[0:3]
+    
 
+area_codes = []
+
+for call in calls:
+    if filterAreaCode(call):
+        area_codes.append(getAreaCode(call))
 
 print("The numbers called by people in Bangalore have codes:")
-print("<percentage> percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+
+area_codes.sort()
+
+for area_code in area_codes:
+    print(area_code)
+
+bangalore_fixed_lines_calls = []
+
+for area_code in area_codes:
+    if area_code[:3] == '080':
+      bangalore_fixed_lines_calls.append(area_code)
+
+print(f"{round(len(bangalore_fixed_lines_calls)/len(area_codes) * 100, 2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
