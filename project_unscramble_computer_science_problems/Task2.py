@@ -34,7 +34,8 @@ def getMonthDate(timestamp):
 september_calls = []
 for call in calls:
     if getMonthDate(call[2]) == '09-2016':
-        september_calls.append({"receiving_number": call[1], "duration": call[3] })
+        september_calls.append(
+            {"receiving_number": call[1], "duration": call[3]})
 
 sorted_calls = sorted(september_calls, key=lambda item: int(item["duration"]))
 

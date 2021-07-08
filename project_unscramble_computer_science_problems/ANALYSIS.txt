@@ -1,0 +1,11 @@
+# Analysis
+## Task0
+Time Complexity is **O(1)** because I'm accessing the first and last element of the array.
+## Task 1
+Time complexity is **O(n)** because I'm accessing both csv files.
+## Task 2
+Time complexity **O(n)** because I'm accessing all the calls in the records
+## Task 3
+Time complexity is **O(nlogn)** because I'm using the sorted method with a complexity of O(nlogn).
+## Task 4
+Time complexity is **O(nlogn)** because I am using the sort method with a complexity of O(nlogn).
